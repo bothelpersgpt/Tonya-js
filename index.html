@@ -1,0 +1,23 @@
+// username.js
+
+document.addEventListener("DOMContentLoaded", function () {
+    // Check if the user is logged in
+    var isLoggedIn = localStorage.getItem("username") !== null;
+
+    if (isLoggedIn) {
+        // Get the username from local storage
+        var currentUsername = localStorage.getItem("username");
+
+        // Transform the username to "Robin☑️" if it is "robin"
+        if (currentUsername.toLowerCase() === "robin") {
+            var transformedUsername = "Robin☑️";
+
+            // Update the username in local storage
+            localStorage.setItem("username", transformedUsername);
+
+            // Transfer the bio
+            var currentBio = localStorage.getItem("bio");
+            localStorage.setItem("bio", "Bio for " + transformedUsername + ": " + currentBio);
+        }
+    }
+});
